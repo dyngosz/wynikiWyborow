@@ -1,5 +1,72 @@
-extends layout
+doctype html
+html.
+ 
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
 
-block content
-  h1= title
-  p Welcome to #{title}
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Komitet Wyborczy Platforma Obywatelska RP	', 39.18],
+          ['Komitet Wyborczy Prawo i Sprawiedliwość	', 29.89],
+          ['Komitet Wyborczy Ruch Palikota', 10.02],
+          ['Komitet Wyborczy Polskie Stronnictwo Ludowe', 8.36],
+          ['Komitet Wyborczy Sojusz Lewicy Demokratycznej', 8.24],
+          ['Komitet Wyborczy Wyborców Mniejszość Niemiecka', 0.19],
+          ['Komitet Wyborczy Nasz Dom Polska', 0.07],
+          ['Komitet Wyborczy Nowa Prawica', 1.06],
+          ['Komitet Wyborczy Polska Jest Najważniejsza', 2.19],
+          ['Komitet Wyborczy Nowa Prawica', 1.06],
+          ['Komitet Wyborczy Prawica', 0.24]
+        ]);
+
+        // Set chart options
+        var options = {
+                       'width':1400,
+                       'height':600,
+                       is3D: true,
+                       pieSliceText : 'value',
+                       slices: {  5: {offset: 0.5},
+                    6: {offset: 0.5},
+                    7: {offset: 0.5},
+                    8: {offset: 0.5},
+                    9: {offset: 0.5},
+                    10: {offset: 0.5},},
+                    sliceVisibilityThreshold: 0
+                    };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+  <div id="header" style="text-align: center;">
+      <h1>Wyniki Wyborów do Sejmu Rzeczypospolitej Polskiej 2011</h1>
+   </div>
+    <!--Div that will hold the pie chart-->
+    <div style="text-align: left;">
+    <div id="chart_div"></div>
+    <div id="footer" style="text-align: center;">
+      Copyright Wiktor Dyngosz 204418
+    </div>
+  </body>
+
+  
