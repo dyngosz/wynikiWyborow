@@ -27,12 +27,12 @@ html.
           ['Komitet Wyborczy Ruch Palikota', 10.02],
           ['Komitet Wyborczy Polskie Stronnictwo Ludowe', 8.36],
           ['Komitet Wyborczy Sojusz Lewicy Demokratycznej', 8.24],
-          ['Komitet Wyborczy Wyborców Mniejszość Niemiecka', 0.19],
-          ['Komitet Wyborczy Nasz Dom Polska', 0.07],
           ['Komitet Wyborczy Nowa Prawica', 1.06],
           ['Komitet Wyborczy Polska Jest Najważniejsza', 2.19],
-          ['Komitet Wyborczy Nowa Prawica', 1.06],
-          ['Komitet Wyborczy Prawica', 0.24]
+          ['Komitet Wyborczy Nowa Prawica', 0.55],
+          ['Komitet Wyborczy Prawica', 0.24],
+          ['Komitet Wyborczy Wyborców Mniejszość Niemiecka', 0.19],
+          ['Komitet Wyborczy Nasz Dom Polska', 0.07],
         ]);
 
         // Set chart options
@@ -40,14 +40,14 @@ html.
                        'width':1400,
                        'height':600,
                        is3D: true,
-                       pieSliceText : 'value',
+                       pieSliceText : 'value' + '%',
                        slices: {  5: {offset: 0.5},
                     6: {offset: 0.5},
                     7: {offset: 0.5},
-                    8: {offset: 0.5},
-                    9: {offset: 0.5},
-                    10: {offset: 0.5},},
-                    sliceVisibilityThreshold: 0
+                    8: {offset: 0.6},
+                    9: {offset: 0.7},
+                    10: {offset: 0.8},},
+                    sliceVisibilityThreshold: 0 
                     };
 
         // Instantiate and draw our chart, passing in some options.
